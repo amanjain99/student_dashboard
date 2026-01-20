@@ -25,6 +25,7 @@
   gap: var(--space-1);
   color: var(--color-text-primary);
   transition: opacity var(--transition-fast);
+  margin-left: 140px;
 }
 
 .logo:hover {

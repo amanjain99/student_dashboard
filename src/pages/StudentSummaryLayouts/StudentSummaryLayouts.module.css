@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   
-  /* Background */
+  /* Background - Teal Theme */
   background: linear-gradient(
     180deg,
     #0A2D2D 0%,
@@ -29,10 +29,11 @@
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(69, 162, 158, 0.25) 0%,
+    rgba(69, 162, 158, 0.3) 0%,
     transparent 70%
   );
   pointer-events: none;
+  animation: pulse1 8s ease-in-out infinite;
 }
 
 .bgGlow2 {
@@ -43,15 +44,26 @@
   height: 800px;
   background: radial-gradient(
     circle,
-    rgba(46, 125, 125, 0.2) 0%,
+    rgba(46, 125, 125, 0.25) 0%,
     transparent 70%
   );
   pointer-events: none;
+  animation: pulse2 10s ease-in-out infinite;
+}
+
+@keyframes pulse1 {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes pulse2 {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
 
 .container {
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +74,7 @@
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .logo {
@@ -91,6 +103,7 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
+  letter-spacing: 1px;
 }
 
 /* Back Button */
@@ -122,122 +135,498 @@
   transition: transform 0.2s ease;
 }
 
+/* Title */
+.title {
+  font-family: var(--font-family-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px;
+  text-align: center;
+}
+
 /* Layout Grid */
 .layoutGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   width: 100%;
 }
 
 /* Layout Card */
 .layoutCard {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(69, 162, 158, 0.2);
-  border-radius: 16px;
+  border: 1px solid rgba(69, 162, 158, 0.15);
+  border-radius: 20px;
   padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
   cursor: pointer;
   transition: all 0.25s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.layoutCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(69, 162, 158, 0.1) 0%,
+    rgba(46, 125, 125, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
 }
 
 .layoutCard:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(69, 162, 158, 0.4);
-  box-shadow: 0 8px 32px rgba(69, 162, 158, 0.15);
+  border-color: rgba(69, 162, 158, 0.35);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(69, 162, 158, 0.15);
 }
 
-.layoutCard.comingSoon {
-  opacity: 0.6;
-  cursor: not-allowed;
+.layoutCard:hover::before {
+  opacity: 1;
 }
 
-.layoutCard.comingSoon:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(69, 162, 158, 0.2);
-  box-shadow: none;
-  transform: none;
+/* Hero Layout Card Variant */
+.layoutCardHero {
+  border-color: rgba(255, 214, 102, 0.15);
 }
 
-.cardIcon {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, rgba(69, 162, 158, 0.2) 0%, rgba(46, 125, 125, 0.1) 100%);
-  border: 1px solid rgba(69, 162, 158, 0.3);
+.layoutCardHero::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 214, 102, 0.1) 0%,
+    rgba(255, 180, 100, 0.05) 100%
+  );
+}
+
+.layoutCardHero:hover {
+  border-color: rgba(255, 214, 102, 0.4);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 214, 102, 0.15);
+}
+
+/* Hero Badge */
+.heroBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #FFD666 0%, #FF9500 100%);
+  border-radius: 100px;
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a0a10;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Card Preview */
+.cardPreview {
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
+  padding: 16px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Preview Layout 1 - Game Summary
+   ========================================================================== */
+.previewLayout1 {
   display: flex;
+  gap: 8px;
+  height: 100%;
+}
+
+/* Reaction Rail */
+.previewReactionRail {
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 8px;
+}
+
+.previewReactionDot {
+  width: 8px;
+  height: 8px;
+  background: rgba(69, 162, 158, 0.4);
+  border-radius: 50%;
+}
+
+/* Main Content */
+.previewMainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewHeader {
+  height: 12px;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.previewStatsZone {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewAccuracyBar {
+  height: 8px;
+  background: linear-gradient(90deg, rgba(69, 162, 158, 0.5) 80%, rgba(255, 255, 255, 0.1) 80%);
+  border-radius: 4px;
+}
+
+.previewStatCards {
+  display: flex;
+  gap: 4px;
+}
+
+.previewStatCard {
+  flex: 1;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.previewPerfGrid {
+  display: flex;
+  gap: 4px;
+}
+
+.previewPerfCard {
+  flex: 1;
+  height: 18px;
+  background: linear-gradient(135deg, rgba(69, 162, 158, 0.25) 0%, rgba(46, 125, 125, 0.15) 100%);
+  border-radius: 4px;
+}
+
+.previewQuestionCards {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.previewQuestionCard {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  border-left: 2px solid rgba(69, 162, 158, 0.4);
+}
+
+/* Context Panel */
+.previewContextPanel {
+  width: 60px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewAvatar {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, rgba(255, 214, 102, 0.3) 0%, rgba(255, 180, 100, 0.15) 60%, transparent 70%);
+  border-radius: 50%;
+}
+
+.previewCoinPill {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 214, 102, 0.2);
+  border-radius: 6px;
+}
+
+.previewActions {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.previewActionBtn {
+  flex: 1;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Preview Layout 2 - Centered Qbit
+   ========================================================================== */
+.previewLayout2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+/* Hero Row */
+.previewHeroRow {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.previewSummaryCard {
+  flex: 1.2;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewSummaryHeader {
+  height: 8px;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.previewBigStats {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.previewBigStat {
+  flex: 1;
+  background: rgba(255, 214, 102, 0.15);
+  border-radius: 4px;
+}
+
+.previewCtaButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.previewCtaBtn {
+  flex: 1;
+  height: 12px;
+  background: rgba(69, 162, 158, 0.3);
+  border-radius: 4px;
+}
+
+.previewCtaBtn:first-child {
+  background: rgba(255, 214, 102, 0.35);
+}
+
+/* Qbit Showcase */
+.previewQbitShowcase {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 6px;
 }
 
+.previewQbitAvatar {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, rgba(255, 180, 100, 0.4) 0%, rgba(255, 150, 80, 0.2) 60%, transparent 70%);
+  border-radius: 50%;
+}
+
+.previewQbitCoins {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 214, 102, 0.25);
+  border-radius: 4px;
+}
+
+/* Drop Banner */
+.previewDropBanner {
+  flex: 0.8;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.3) 0%, rgba(94, 15, 38, 0.2) 100%);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.previewDropBadge {
+  width: 40%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.previewDropTitle {
+  width: 80%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+/* Split Section */
+.previewSplitSection {
+  display: flex;
+  gap: 6px;
+  height: 55px;
+}
+
+.previewQuestionsCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.previewQCard {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  border-left: 2px solid rgba(69, 162, 158, 0.4);
+}
+
+.previewQCard:nth-child(2) {
+  border-left-color: rgba(255, 100, 100, 0.4);
+}
+
+.previewSidebarCol {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.previewAnnouncement {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Card Content & Arrow
+   ========================================================================== */
 .cardContent {
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .cardTitle {
   font-family: var(--font-family-display);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
   color: #FFFFFF;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+  transition: color 0.3s ease;
 }
 
 .cardDescription {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.viewButton {
-  font-family: var(--font-family-display);
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(69, 162, 158, 0.9);
-  padding: 8px 16px;
-  background: rgba(69, 162, 158, 0.1);
-  border-radius: 8px;
+/* Card Arrow */
+.cardArrow {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
   transition: all 0.2s ease;
-  flex-shrink: 0;
+  z-index: 1;
 }
 
-.layoutCard:hover .viewButton {
-  background: rgba(69, 162, 158, 0.2);
-  color: #45a29e;
+.layoutCard:hover .cardArrow {
+  background: #FFFFFF;
+  color: #0A2D2D;
+  transform: translateX(4px);
 }
 
-.comingSoonBadge {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  flex-shrink: 0;
+.layoutCardHero:hover .cardArrow {
+  background: #FFD666;
+  color: #1a0a10;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
   .page {
     padding: 32px 20px;
   }
   
+  .title {
+    font-size: 28px;
+  }
+  
+  .description {
+    font-size: 15px;
+  }
+  
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .cardPreview {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardPreview {
+    height: 140px;
+    padding: 12px;
+  }
+  
   .layoutCard {
-    flex-direction: column;
-    text-align: center;
     padding: 20px;
   }
   
-  .cardContent {
-    width: 100%;
-  }
-  
-  .viewButton,
-  .comingSoonBadge {
-    margin-top: 12px;
+  .cardTitle {
+    font-size: 20px;
   }
 }

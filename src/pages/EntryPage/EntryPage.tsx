@@ -70,6 +70,7 @@ export function EntryPage() {
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
           >
+            <div className={styles.recommendedBadge}>⭐ RECOMMENDED</div>
             <div className={styles.cardPreview}>
               <div className={styles.previewLayout1}>
                 <div className={styles.previewMain}>
@@ -141,6 +142,7 @@ export function EntryPage() {
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
           >
+            <div className={styles.potentialBadge}>✨ POTENTIAL</div>
             <div className={styles.cardPreview}>
               <div className={styles.previewLayout3}>
                 <div className={styles.previewBentoGrid}>
@@ -216,6 +218,7 @@ export function EntryPage() {
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
           >
+            <div className={styles.recommendedBadge}>⭐ RECOMMENDED</div>
             <div className={styles.cardPreview}>
               <div className={styles.previewLayout5}>
                 <div className={styles.previewPremiumHero}>
@@ -257,7 +260,6 @@ export function EntryPage() {
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className={styles.qbitCentricBadge}>🤖 AI FIRST</div>
             <div className={styles.cardPreview}>
               <div className={styles.previewLayout6}>
                 <div className={styles.previewQbitCenter}>

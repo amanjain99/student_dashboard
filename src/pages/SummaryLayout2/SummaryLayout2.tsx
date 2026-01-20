@@ -254,8 +254,6 @@ export function SummaryLayout2() {
                   <img src={strangerBanner} alt="Stranger Qbits" className={styles.dropBannerImage} />
                   <div className={styles.dropOverlay}>
                     <div className={styles.dropContent}>
-                      <span className={styles.dropBadge}>NEW DROP</span>
-                      <span className={styles.dropTitle}>Stranger Qbits</span>
                       <span className={styles.dropSubtitle}>Limited Edition Collection</span>
                       <span className={styles.dropCta}>Shop Now →</span>
                     </div>
