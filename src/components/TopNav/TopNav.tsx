@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion';
 import styles from './TopNav.module.css';
 
-interface TopNavProps {
-  userName: string;
-}
-
-export function TopNav({ userName }: TopNavProps) {
+export function TopNav() {
   return (
     <nav className={styles.nav}>
       <div className={styles.container}>

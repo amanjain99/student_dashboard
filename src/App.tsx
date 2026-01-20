@@ -12,17 +12,10 @@ import qbitAvatar from '../assets/sigma-boi.png';
 const USER = {
   name: 'Aman',
   coinBalance: 2998,
-  level: 12,
-  xp: 2450,
-  xpToNextLevel: 3000,
   streak: 5,
 };
 
 function App() {
-  const handleCustomize = () => {
-    console.log('Opening Qbit customization...');
-  };
-
   const handleShopClick = () => {
     console.log('Opening shop...');
   };
@@ -36,12 +29,10 @@ function App() {
       <FloatingParticles />
       <div className="app-layout">
         <div className="left-section">
-          <TopNav userName={USER.name} />
+          <TopNav />
           
           <main className="main">
-            <HeroSection 
-              userName={USER.name}
-            />
+            <HeroSection />
             
             <ActivitiesSection />
           </main>
@@ -51,11 +42,7 @@ function App() {
           avatarUrl={qbitAvatar}
           userName={USER.name}
           coinBalance={USER.coinBalance}
-          level={USER.level}
-          xp={USER.xp}
-          xpToNextLevel={USER.xpToNextLevel}
           streak={USER.streak}
-          onCustomize={handleCustomize}
           onShopClick={handleShopClick}
           onFriendsClick={handleFriendsClick}
         />

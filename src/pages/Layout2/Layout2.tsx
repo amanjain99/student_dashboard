@@ -80,7 +80,7 @@ export function Layout2() {
       {/* Main Content - Full Width, No Sidebar */}
       <main className={styles.main}>
         {/* Hero Section - Same component */}
-        <HeroSection userName={USER.name} />
+        <HeroSection />
         
         {/* Activities Section - Same component */}
         <ActivitiesSection />

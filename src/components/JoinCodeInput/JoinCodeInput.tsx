@@ -3,11 +3,10 @@ import { motion } from 'framer-motion';
 import styles from './JoinCodeInput.module.css';
 
 interface JoinCodeInputProps {
-  userName: string;
   onJoin?: (code: string) => void;
 }
 
-export function JoinCodeInput({ userName, onJoin }: JoinCodeInputProps) {
+export function JoinCodeInput({ onJoin }: JoinCodeInputProps) {
   const [code, setCode] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 

@@ -9,13 +9,6 @@ import qbitAvatar from '../../../assets/sigma-boi.png';
 // Import banner image
 import strangerBanner from '../../../assets/strangerthings.png';
 
-// Mock skin previews (using emojis as placeholders)
-const NEW_SKINS = [
-  { id: 1, emoji: '🦌', name: 'Reindeer' },
-  { id: 2, emoji: '🎄', name: 'Tree' },
-  { id: 3, emoji: '⛄', name: 'Snowman' },
-];
-
 // Mock data
 const GAME_DATA = {
   gameType: 'Live',

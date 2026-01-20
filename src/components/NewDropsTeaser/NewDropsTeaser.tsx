@@ -38,7 +38,7 @@ export function NewDropsTeaser() {
 
       {/* Character Cards */}
       <div className={styles.carousel}>
-        {CHARACTERS.map((char, index) => (
+        {CHARACTERS.map((char) => (
           <motion.div 
             key={char.label}
             className={styles.characterCard}
