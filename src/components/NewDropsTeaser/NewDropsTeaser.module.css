@@ -1,0 +1,198 @@
+/* ==========================================================================
+   NewDropsTeaser - Promotional Card
+   Contained, elegant, with subtle seasonal atmosphere
+   ========================================================================== */
+
+.teaser {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(100, 150, 200, 0.08) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   Snowflakes - Subtle atmospheric detail
+   ========================================================================== */
+
+.snowflakes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.snowflake {
+  position: absolute;
+  top: -12px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: snowfall 8s linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(180px) translateX(15px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Header - Clear hierarchy
+   ========================================================================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.1px;
+}
+
+.shopLink {
+  font-family: var(--font-family-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.15s ease;
+}
+
+.shopLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.shopLink::after {
+  content: '→';
+  font-size: 12px;
+  transition: transform 0.15s ease;
+}
+
+.shopLink:hover::after {
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   Character Carousel
+   ========================================================================== */
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 2;
+  margin: 0 -4px;
+  padding: 4px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.characterCard {
+  flex-shrink: 0;
+  width: 64px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.characterCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.characterCard:active {
+  transform: translateY(0);
+}
+
+.characterIcon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* Gradient overlay - subtle fade */
+.gradientOverlay {
+  display: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .teaser {
+    padding: 16px;
+    border-radius: 14px;
+  }
+  
+  .header {
+    margin-bottom: 12px;
+  }
+  
+  .title {
+    font-size: 13px;
+  }
+  
+  .shopLink {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  .carousel {
+    gap: 8px;
+  }
+  
+  .characterCard {
+    width: 56px;
+    height: 64px;
+    border-radius: 10px;
+  }
+  
+  .characterIcon {
+    font-size: 24px;
+  }
+}

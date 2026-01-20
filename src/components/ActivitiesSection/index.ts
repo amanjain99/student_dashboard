@@ -1,0 +1,2 @@
+export { ActivitiesSection } from './ActivitiesSection';
+

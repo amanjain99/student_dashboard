@@ -1,0 +1,116 @@
+.showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-8) var(--space-6);
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.4) 0%, rgba(94, 15, 38, 0.6) 100%);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 280px;
+}
+
+.glowBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 184, 0, 0.25) 0%, rgba(255, 184, 0, 0.1) 40%, transparent 70%);
+  pointer-events: none;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.avatarContainer {
+  position: relative;
+  z-index: 2;
+  width: 140px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+.defaultQbit {
+  width: 120px;
+  height: 140px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+.coinBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+}
+
+.coinIcon {
+  display: flex;
+  align-items: center;
+}
+
+.coinCount {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-gold);
+  text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
+}
+
+.customizeBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: linear-gradient(135deg, var(--color-accent-gold) 0%, #E5A600 100%);
+  border-radius: var(--radius-full);
+  color: var(--color-primary-darker);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  box-shadow: 0 4px 12px rgba(255, 184, 0, 0.4);
+  transition: box-shadow var(--transition-fast);
+}
+
+.customizeBtn:hover {
+  box-shadow: 0 6px 20px rgba(255, 184, 0, 0.5);
+}
+
+.customizeIcon {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .showcase {
+    padding: var(--space-6) var(--space-4);
+    min-width: 240px;
+  }
+
+  .avatarContainer {
+    width: 120px;
+    height: 140px;
+  }
+
+  .defaultQbit {
+    width: 100px;
+    height: 120px;
+  }
+
+  .glowBackground {
+    width: 160px;
+    height: 160px;
+  }
+}
+

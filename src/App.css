@@ -1,0 +1,63 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Dark maroon/purple background image */
+  background: 
+    /* Radial glow effects */
+    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(139, 21, 56, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 400px at 80% 20%, rgba(94, 15, 38, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 300px at 50% 80%, rgba(61, 10, 25, 0.5) 0%, transparent 60%),
+    /* Base gradient */
+    linear-gradient(180deg, 
+      #3D0F24 0%,
+      #2D0A1A 30%,
+      #1F0712 60%,
+      #150510 100%
+    );
+  background-attachment: fixed;
+}
+
+.app-layout {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Account for fixed sidebar on desktop */
+  margin-right: var(--sidebar-width);
+  transition: margin-right var(--transition-base);
+  min-width: 0;
+  position: relative;
+}
+
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--space-8);
+}
+
+@media (max-width: 1100px) {
+  .left-section {
+    margin-right: 340px;
+  }
+}
+
+@media (max-width: 900px) {
+  .left-section {
+    margin-right: 0;
+  }
+}
+
+/* Footer Styles - Removed for cleaner look matching Figma */
+.footer {
+  display: none;
+}

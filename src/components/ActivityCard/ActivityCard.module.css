@@ -1,0 +1,174 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: var(--card-color);
+  border-radius: var(--radius-md);
+  min-width: 248px;
+  max-width: 248px;
+  height: 214px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: box-shadow var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.card:hover {
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(255,255,255,0.2) 0%, 
+    rgba(255,255,255,0.08) 20%,
+    transparent 50%, 
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  width: fit-content;
+  margin-bottom: var(--space-2);
+}
+
+.logo {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: var(--color-white);
+  opacity: 0.3;
+}
+
+/* Chalkboard-style title area */
+.chalkboardTitle {
+  font-family: 'Chalkboard SE', 'Comic Sans MS', cursive, sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.designSystem {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: auto;
+}
+
+.questionCount {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  width: fit-content;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-1);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.author {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-3);
+}
+
+.progressContainer {
+  margin-top: auto;
+}
+
+.progressBar {
+  height: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+  border-radius: var(--radius-sm);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+}
+
+@media (max-width: 640px) {
+  .card {
+    min-width: 200px;
+    max-width: 200px;
+    height: 200px;
+    padding: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .progressBar {
+    height: 20px;
+  }
+  
+  .progressText {
+    font-size: var(--font-size-xs);
+  }
+}

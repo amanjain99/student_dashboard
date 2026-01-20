@@ -1,0 +1,478 @@
+/* ==========================================================================
+   QbitSidebar - Premium Companion Panel
+   Design System: 8px grid, purposeful hierarchy, refined glass aesthetic
+   ========================================================================== */
+
+.sidebar {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: 340px;
+  
+  /* Solid opaque background - sits on top of main content */
+  background: linear-gradient(
+    168deg,
+    #4A1A2E 0%,
+    #3D0F24 100%
+  );
+  
+  /* Subtle border for definition */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-sticky);
+  overflow: hidden;
+  
+  /* Elegant shadow for depth */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 12px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Close button - Mobile only */
+.closeBtn {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  border: none;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   Avatar Section - Hero moment, generous spacing
+   ========================================================================== */
+
+.qbitSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px 24px;
+}
+
+/* Ambient glow - subtle, organic */
+.avatarGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 180, 50, 0.12) 0%,
+    rgba(255, 120, 80, 0.06) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+/* Avatar container with refined ring */
+.avatarContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle ring indicator */
+.avatarContainer::before {
+  content: '';
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.avatar {
+  width: 132px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+.defaultQbit {
+  width: 110px;
+  height: 130px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   User Section - Clear hierarchy, balanced spacing
+   ========================================================================== */
+
+.userSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px 24px;
+  width: 100%;
+}
+
+/* Greeting - Warm, personal */
+.greeting {
+  font-family: var(--font-family-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+/* ==========================================================================
+   Coins Display - Refined, informative
+   ========================================================================== */
+
+.coinsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.coinsPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  padding: 10px 20px;
+}
+
+.coinsEarnedBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(255, 193, 34, 0.18) 0%, rgba(255, 150, 0, 0.12) 100%);
+  border: 1px solid rgba(255, 193, 34, 0.35);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: var(--font-family-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFD666;
+  letter-spacing: -0.1px;
+}
+
+.coinIcon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.coinAmount {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFD666;
+  letter-spacing: -0.2px;
+}
+
+.coinLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ==========================================================================
+   Action Buttons - Clear hierarchy, accessible
+   ========================================================================== */
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Shared button foundation */
+.shopButton,
+.friendsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  height: 44px;
+  border-radius: 12px;
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* Primary Button - Shop */
+.shopButton {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shopButton:hover {
+  background: #F5F5F5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.shopButton:active {
+  background: #EBEBEB;
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Secondary Button - Friends */
+.friendsButton {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.friendsButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.friendsButton:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.buttonIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Divider - Subtle separation
+   ========================================================================== */
+
+.divider {
+  width: calc(100% - 48px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Bottom Section - Promotional content
+   ========================================================================== */
+
+.bottomSection {
+  margin-top: auto;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   Mobile Toggle FAB
+   ========================================================================== */
+
+.mobileToggle {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);
+  box-shadow: 
+    0 4px 16px rgba(168, 85, 247, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: calc(var(--z-sticky) + 1);
+  padding: 8px;
+  border: none;
+}
+
+.miniAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.miniAvatar img,
+.miniAvatar svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: calc(var(--z-sticky) - 1);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 320px;
+  }
+  
+  .avatar {
+    width: 120px;
+  }
+  
+  .defaultQbit {
+    width: 100px;
+    height: 118px;
+  }
+  
+  .avatarContainer::before {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .qbitSection {
+    padding: 32px 20px 20px;
+  }
+  
+  .userSection {
+    padding: 0 20px 20px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .closeBtn {
+    display: flex;
+  }
+  
+  .mobileToggle {
+    display: flex;
+  }
+  
+  .overlay {
+    display: block;
+  }
+  
+  .qbitSection {
+    padding: 24px 20px 16px;
+  }
+  
+  .avatar {
+    width: 100px;
+  }
+  
+  .defaultQbit {
+    width: 85px;
+    height: 100px;
+  }
+  
+  .avatarContainer::before {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    max-height: 85vh;
+  }
+  
+  .mobileToggle {
+    bottom: 20px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .qbitSection {
+    padding: 20px 16px 12px;
+  }
+
+  .userSection {
+    padding: 0 16px 16px;
+    gap: 14px;
+  }
+
+  .greeting {
+    font-size: 20px;
+  }
+  
+  .coinsPill {
+    padding: 8px 16px;
+  }
+  
+  .coinAmount {
+    font-size: 16px;
+  }
+  
+  .buttonGroup {
+    gap: 10px;
+  }
+  
+  .shopButton,
+  .friendsButton {
+    height: 40px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  .bottomSection {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,859 @@
+/* ==========================================================================
+   Layout 6 - Qbit-Centric Experience
+   An extension of Layout 5 with Qbit front and center as the main hub
+   ========================================================================== */
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Premium Background (from Layout 5)
+   ========================================================================== */
+
+.bgLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bgGradient1 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    #1a0d14 0%,
+    #12080c 40%,
+    #0a0406 100%
+  );
+}
+
+.bgGradient2 {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 50, 100, 0.2) 0%,
+    transparent 50%
+  );
+  filter: blur(80px);
+}
+
+.bgGradient3 {
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 150, 80, 0.1) 0%,
+    transparent 50%
+  );
+  filter: blur(100px);
+}
+
+.bgNoise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.floatingOrb {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 150, 0.8) 0%,
+    rgba(255, 150, 100, 0.4) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Header (from Layout 5)
+   ========================================================================== */
+
+.header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.backArrow {
+  display: inline-block;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoMark {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: #FFD666;
+  text-shadow: 0 0 30px rgba(255, 214, 102, 0.4);
+}
+
+.logoText {
+  font-family: var(--font-family-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 3px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.streakBadge,
+.coinBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.streakBadge:hover,
+.coinBadge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.streakIcon,
+.coinIcon {
+  font-size: 16px;
+}
+
+.streakValue {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF9500;
+}
+
+.coinValue {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFD666;
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+
+.main {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px 60px;
+}
+
+/* ==========================================================================
+   Qbit Central Hub - The Star of the Show
+   ========================================================================== */
+
+.qbitHub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 40px;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Qbit Stage - The central performance area */
+.qbitStage {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* Glow Effects */
+.qbitGlowOuter {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 150, 80, 0.15) 0%,
+    rgba(255, 100, 60, 0.05) 40%,
+    transparent 60%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.qbitGlowInner {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 120, 0.25) 0%,
+    rgba(255, 150, 80, 0.1) 40%,
+    transparent 60%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Rotating Rings */
+.qbitRing {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border: 1px dashed rgba(255, 214, 102, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.qbitRingInner {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 214, 102, 0.2);
+  border-right-color: rgba(255, 214, 102, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Quick Action Buttons - Explicit positioning */
+.quickActionBtn {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.quickActionBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 214, 102, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Position variants */
+.quickActionTopLeft {
+  top: 20px;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.quickActionTopRight {
+  top: 20px;
+  right: 0;
+  transform: translateX(50%);
+}
+
+.quickActionBottomLeft {
+  bottom: 40px;
+  left: -20px;
+  transform: translateX(-50%);
+}
+
+.quickActionBottomRight {
+  bottom: 40px;
+  right: -20px;
+  transform: translateX(50%);
+}
+
+.quickActionIcon {
+  font-size: 24px;
+}
+
+.quickActionLabel {
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+/* Qbit Avatar Container */
+.qbitContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+}
+
+.qbitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+/* Mood States */
+.qbitHappy .qbitImage {
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.5));
+}
+
+.qbitExcited .qbitImage {
+  filter: drop-shadow(0 15px 50px rgba(255, 180, 100, 0.4));
+}
+
+.qbitThinking .qbitImage {
+  filter: drop-shadow(0 15px 40px rgba(100, 150, 255, 0.3));
+}
+
+/* Mood Indicator */
+.moodIndicator {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  font-size: 28px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* ==========================================================================
+   Chat Bubble - Qbit's Voice
+   ========================================================================== */
+
+.chatBubbleContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chatBubble {
+  position: relative;
+  max-width: 420px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  border-top-left-radius: 8px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.chatBubbleArrow {
+  position: absolute;
+  top: -8px;
+  left: 24px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(255, 255, 255, 0.95);
+}
+
+.chatMessage {
+  font-family: var(--font-family-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Typing Animation */
+.typingDots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.typingDots span {
+  animation: bounce 1.4s ease-in-out infinite;
+  font-size: 24px;
+  color: #666;
+}
+
+.typingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Rank Badge - Floating */
+.rankBadgeFloat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(255, 214, 102, 0.2) 0%, rgba(255, 180, 100, 0.1) 100%);
+  border: 1px solid rgba(255, 214, 102, 0.3);
+  border-radius: 100px;
+}
+
+.rankIcon {
+  font-size: 16px;
+}
+
+.rankText {
+  font-family: var(--font-family-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFD666;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Join Form - Conversational Input
+   ========================================================================== */
+
+.joinForm {
+  width: 100%;
+  max-width: 500px;
+}
+
+.joinInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 6px 6px 6px 20px;
+  transition: all 0.3s ease;
+}
+
+.joinInputWrapper:focus-within {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 214, 102, 0.4);
+  box-shadow: 0 0 0 4px rgba(255, 214, 102, 0.1);
+}
+
+.joinPrefix {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.joinInput {
+  flex: 1;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  font-family: var(--font-family-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  outline: none;
+}
+
+.joinInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.joinBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: var(--font-family-display);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.joinBtn:hover:not(:disabled) {
+  box-shadow: 0 6px 24px rgba(233, 30, 99, 0.4);
+  transform: translateY(-1px);
+}
+
+.joinBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.joinBtnArrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.joinBtn:hover:not(:disabled) .joinBtnArrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Activities Section
+   ========================================================================== */
+
+.activitiesSection {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.sectionSubtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .qbitStage {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .qbitGlowOuter {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .qbitGlowInner {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .qbitRing {
+    width: 270px;
+    height: 270px;
+  }
+  
+  .qbitRingInner {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .quickActionBtn {
+    padding: 10px 14px;
+  }
+  
+  .quickActionTopLeft {
+    top: 10px;
+    left: -10px;
+  }
+
+  .quickActionTopRight {
+    top: 10px;
+    right: -10px;
+  }
+
+  .quickActionBottomLeft {
+    bottom: 30px;
+    left: -30px;
+  }
+
+  .quickActionBottomRight {
+    bottom: 30px;
+    right: -30px;
+  }
+  
+  .quickActionIcon {
+    font-size: 20px;
+  }
+  
+  .quickActionLabel {
+    font-size: 10px;
+  }
+  
+  .qbitContainer {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 16px 20px;
+  }
+  
+  .logo {
+    position: relative;
+    left: auto;
+    transform: none;
+  }
+  
+  .logoText {
+    display: none;
+  }
+  
+  .main {
+    padding: 0 20px 40px;
+  }
+  
+  .qbitStage {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .quickActionBtn {
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+
+  .quickActionTopLeft {
+    top: 5px;
+    left: -15px;
+  }
+
+  .quickActionTopRight {
+    top: 5px;
+    right: -15px;
+  }
+
+  .quickActionBottomLeft {
+    bottom: 20px;
+    left: -35px;
+  }
+
+  .quickActionBottomRight {
+    bottom: 20px;
+    right: -35px;
+  }
+  
+  .quickActionIcon {
+    font-size: 18px;
+  }
+  
+  .quickActionLabel {
+    font-size: 9px;
+  }
+  
+  .qbitContainer {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .moodIndicator {
+    font-size: 22px;
+    top: -8px;
+    right: 5px;
+  }
+  
+  .chatBubbleContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .chatBubble {
+    max-width: 100%;
+    padding: 14px 18px;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  
+  .chatBubbleArrow {
+    display: none;
+  }
+  
+  .chatMessage {
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .joinInputWrapper {
+    padding: 4px 4px 4px 16px;
+  }
+  
+  .joinPrefix {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+  
+  .joinInput {
+    font-size: 15px;
+    padding: 12px 0;
+  }
+  
+  .joinBtn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 16px;
+  }
+  
+  .headerRight {
+    gap: 8px;
+  }
+  
+  .streakBadge,
+  .coinBadge {
+    padding: 6px 10px;
+  }
+  
+  .qbitStage {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .qbitGlowOuter {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .qbitGlowInner {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .qbitRing {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .qbitRingInner {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .quickActionBtn {
+    padding: 6px 8px;
+    border-radius: 10px;
+  }
+
+  .quickActionTopLeft {
+    top: 0;
+    left: -20px;
+  }
+
+  .quickActionTopRight {
+    top: 0;
+    right: -20px;
+  }
+
+  .quickActionBottomLeft {
+    bottom: 15px;
+    left: -40px;
+  }
+
+  .quickActionBottomRight {
+    bottom: 15px;
+    right: -40px;
+  }
+  
+  .quickActionIcon {
+    font-size: 16px;
+  }
+  
+  .quickActionLabel {
+    font-size: 8px;
+  }
+  
+  .qbitContainer {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .moodIndicator {
+    font-size: 18px;
+    top: -10px;
+    right: 0;
+  }
+  
+  .chatBubble {
+    padding: 12px 16px;
+  }
+  
+  .chatMessage {
+    font-size: 14px;
+  }
+  
+  .rankBadgeFloat {
+    padding: 6px 12px;
+  }
+  
+  .rankText {
+    font-size: 12px;
+  }
+}
+

@@ -1,0 +1,692 @@
+/* ==========================================================================
+   Entry Page - Layout Selection
+   ========================================================================== */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Background */
+  background: linear-gradient(
+    180deg,
+    #2D0A1A 0%,
+    #1F0712 50%,
+    #150510 100%
+  );
+}
+
+/* Background glows */
+.bgGlow1 {
+  position: absolute;
+  top: -200px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(139, 21, 56, 0.3) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -300px;
+  right: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(94, 15, 38, 0.25) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.logoIcon {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #F5C842;
+}
+
+.logoText {
+  font-family: var(--font-family-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Back Button */
+.backButton {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 32px;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.backArrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+/* Title */
+.title {
+  font-family: var(--font-family-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+/* Layout Grid */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+/* Premium Layout 5 spans 2 columns */
+.layoutCardPremium {
+  grid-column: span 2;
+  border-color: rgba(255, 214, 102, 0.2) !important;
+  background: linear-gradient(135deg, rgba(255, 214, 102, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+}
+
+.layoutCardPremium:hover {
+  border-color: rgba(255, 214, 102, 0.4) !important;
+  box-shadow: 0 8px 40px rgba(255, 214, 102, 0.15) !important;
+}
+
+.premiumBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #FFD666 0%, #FF9500 100%);
+  border-radius: 100px;
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a0a10;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Layout 6 - Qbit Centric spans 2 columns */
+.layoutCardQbitCentric {
+  grid-column: span 2;
+  border-color: rgba(233, 30, 99, 0.2) !important;
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.1) 0%, rgba(156, 39, 176, 0.05) 100%) !important;
+}
+
+.layoutCardQbitCentric:hover {
+  border-color: rgba(233, 30, 99, 0.4) !important;
+  box-shadow: 0 8px 40px rgba(233, 30, 99, 0.2) !important;
+}
+
+.qbitCentricBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #E91E63 0%, #9C27B0 100%);
+  border-radius: 100px;
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Layout Card */
+.layoutCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.layoutCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Preview */
+.cardPreview {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  height: 160px;
+  overflow: hidden;
+}
+
+/* Preview Layout 1 */
+.previewLayout1 {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+}
+
+.previewMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.previewNav {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.previewHero {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.previewCards {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.previewCard {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(169, 26, 143, 0.3) 0%, rgba(94, 53, 177, 0.3) 100%);
+  border-radius: 6px;
+}
+
+.previewSidebar {
+  width: 60px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewAvatar {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+.previewLine {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Preview Layout 2 - Top Bar Layout */
+.previewLayout2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.previewTopBarFull {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.previewTopBarLogo {
+  width: 24px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.previewTopBarQbit {
+  width: 50px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.previewTopBarBtns {
+  width: 32px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.previewHeroFull {
+  height: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.previewCardsFull {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.previewCardFull {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(169, 26, 143, 0.3) 0%, rgba(94, 53, 177, 0.3) 100%);
+  border-radius: 6px;
+}
+
+/* Preview Layout 3 - Bento Box Layout */
+.previewLayout3 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.previewBentoGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 8px;
+  flex: 1;
+}
+
+.previewBentoQbit {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewBentoAvatar {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+.previewBentoJoin {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.previewBentoInput {
+  width: 80%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+.previewBentoCards {
+  display: flex;
+  gap: 6px;
+  height: 50px;
+}
+
+/* Preview Layout 4 - Game Inspired */
+.layoutCardGame {
+  border-color: rgba(255, 214, 102, 0.15);
+}
+
+.layoutCardGame:hover {
+  border-color: rgba(255, 214, 102, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 214, 102, 0.1);
+}
+
+.previewLayout4 {
+  display: grid;
+  grid-template-columns: 40px 1fr 32px;
+  gap: 6px;
+  height: 100%;
+}
+
+.previewGameLeft {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.previewGameChar {
+  width: 24px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255, 214, 102, 0.3) 0%, rgba(255, 180, 100, 0.2) 100%);
+  border-radius: 4px;
+}
+
+.previewGameCenter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewGameStats {
+  height: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+.previewGameQuest {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+.previewGameCards {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.previewGameRight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.previewGameStat {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+/* Preview Layout 5 - Premium */
+.previewLayout5 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.previewPremiumHero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.previewPremiumQbit {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(255, 214, 102, 0.3) 0%, rgba(255, 180, 100, 0.15) 60%, transparent 70%);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.previewPremiumWelcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewPremiumTitle {
+  height: 14px;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.previewPremiumLevel {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.previewPremiumActions {
+  display: flex;
+  gap: 6px;
+  height: 28px;
+}
+
+.previewPremiumJoin {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.previewPremiumBtn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.previewPremiumCards {
+  display: flex;
+  gap: 6px;
+  height: 40px;
+}
+
+/* Preview Layout 6 - Qbit Centric */
+.previewLayout6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 8px 0;
+}
+
+.previewQbitCenter {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewQbitRing {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 1px dashed rgba(255, 214, 102, 0.3);
+  border-radius: 50%;
+}
+
+.previewQbitAvatar {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(255, 180, 100, 0.4) 0%, rgba(255, 150, 80, 0.2) 60%, transparent 70%);
+  border-radius: 50%;
+}
+
+.previewQuickAction {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.previewChatBubble {
+  width: 70%;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewChatLine {
+  width: 80%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.previewJoinBar {
+  width: 80%;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+}
+
+/* Card Content */
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Card Arrow */
+.cardArrow {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+
+.layoutCard:hover .cardArrow {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .layoutGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .layoutCardPremium,
+  .layoutCardQbitCentric {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 32px 20px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .description {
+    font-size: 15px;
+  }
+  
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .layoutCardPremium,
+  .layoutCardQbitCentric {
+    grid-column: span 1;
+  }
+  
+  .cardPreview {
+    height: 140px;
+  }
+}
+

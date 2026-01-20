@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Student Summary Layouts - Selection Page
+   ========================================================================== */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Background */
+  background: linear-gradient(
+    180deg,
+    #0A2D2D 0%,
+    #071F1F 50%,
+    #051515 100%
+  );
+}
+
+/* Background glows - teal theme for summary */
+.bgGlow1 {
+  position: absolute;
+  top: -200px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(69, 162, 158, 0.25) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -300px;
+  right: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 125, 125, 0.2) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.logoIcon {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #F5C842;
+}
+
+.logoText {
+  font-family: var(--font-family-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Back Button */
+.backButton {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 32px;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.backArrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+/* Layout Grid */
+.layoutGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Layout Card */
+.layoutCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(69, 162, 158, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.layoutCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(69, 162, 158, 0.4);
+  box-shadow: 0 8px 32px rgba(69, 162, 158, 0.15);
+}
+
+.layoutCard.comingSoon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.layoutCard.comingSoon:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(69, 162, 158, 0.2);
+  box-shadow: none;
+  transform: none;
+}
+
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(69, 162, 158, 0.2) 0%, rgba(46, 125, 125, 0.1) 100%);
+  border: 1px solid rgba(69, 162, 158, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.viewButton {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(69, 162, 158, 0.9);
+  padding: 8px 16px;
+  background: rgba(69, 162, 158, 0.1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.layoutCard:hover .viewButton {
+  background: rgba(69, 162, 158, 0.2);
+  color: #45a29e;
+}
+
+.comingSoonBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .page {
+    padding: 32px 20px;
+  }
+  
+  .layoutCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .cardContent {
+    width: 100%;
+  }
+  
+  .viewButton,
+  .comingSoonBadge {
+    margin-top: 12px;
+  }
+}

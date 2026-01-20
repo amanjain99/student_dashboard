@@ -1,0 +1,42 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: var(--space-4) var(--space-6);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mainColumn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 200px;
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 160px;
+    padding: var(--space-3);
+  }
+}

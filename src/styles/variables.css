@@ -1,0 +1,265 @@
+/* Wayground Student Dashboard - Design Tokens */
+/* Dark Immersive Theme - Matching Figma Design */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Primary Colors - Dark Purple/Maroon Theme */
+  --color-primary: #8B1538;
+  --color-primary-dark: #5E0F26;
+  --color-primary-darker: #3D0A19;
+  --color-primary-light: #A91D45;
+  
+  /* Immersive Background Colors */
+  --color-bg-dark: #2D0A1A;
+  --color-bg-mid: #3D0F24;
+  --color-bg-light: #4A1430;
+  --color-surface-dark: rgba(12, 12, 12, 0.2);
+  --color-surface-glass: rgba(255, 255, 255, 0.1);
+  
+  /* Accent Colors */
+  --color-accent-gold: #FFB800;
+  --color-accent-gold-light: #FFD54F;
+  --color-accent-pink: #FC349F;
+  --color-accent-magenta: #A91A8F;
+  --color-accent-teal: #00BFA5;
+  --color-accent-blue: #3498DB;
+  --color-accent-purple: #9B59B6;
+  
+  /* Join Button Gradient */
+  --gradient-join-btn: linear-gradient(141deg, #A91A8F 7%, #FC349F 115%);
+  
+  /* Card Colors - Activity Cards */
+  --color-card-blue: #2980B9;
+  --color-card-teal: #16A085;
+  --color-card-yellow: #F39C12;
+  --color-card-red: #E74C3C;
+  --color-card-purple: #9B59B6;
+  --color-card-pink: #FF6B9D;
+  
+  /* Neutrals */
+  --color-white: #FFFFFF;
+  --color-gray-100: #F8F9FA;
+  --color-gray-200: #E9ECEF;
+  --color-gray-300: #DEE2E6;
+  --color-gray-400: #CED4DA;
+  --color-gray-500: #ADB5BD;
+  --color-gray-600: #6C757D;
+  --color-gray-700: #495057;
+  --color-gray-800: #343A40;
+  --color-gray-900: #212529;
+  --color-black: #000000;
+  
+  /* Text Colors for Dark Theme */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* Border Colors */
+  --color-border-light: rgba(255, 255, 255, 0.2);
+  --color-border-dark: rgba(9, 9, 9, 0.2);
+  
+  /* Semantic Colors */
+  --color-success: #2ECC71;
+  --color-warning: #F39C12;
+  --color-error: #E74C3C;
+  --color-info: #3498DB;
+  
+  /* Background Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+  --gradient-hero-radial: radial-gradient(ellipse at top center, var(--color-primary) 0%, var(--color-primary-darker) 70%);
+  --gradient-qbit-glow: radial-gradient(circle, rgba(255, 184, 0, 0.3) 0%, transparent 70%);
+  --gradient-card-shine: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  
+  /* Sidebar Glass Effect */
+  --gradient-sidebar: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* Typography - Quicksand (matching Figma) */
+  --font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-display: 'Quicksand', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Spacing */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow-gold: 0 0 30px rgba(255, 184, 0, 0.4);
+  --shadow-glow-pink: 0 0 20px rgba(255, 64, 129, 0.3);
+  --shadow-inset-dark: inset 0px -4px 0px 0px rgba(9, 9, 9, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Z-index */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-modal: 30;
+  --z-tooltip: 40;
+  
+  /* Layout */
+  --max-width: 1280px;
+  --nav-height: 72px;
+  --sidebar-width: 373px;
+}
+
+/* Shimmer Animation for Coins */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating Particles */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-35px) translateX(-5px) scale(1);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-15px) translateX(15px) scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+/* Staggered Fade In */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sparkle */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Breathe - subtle scale */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Snowfall animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) translateX(20px);
+    opacity: 0;
+  }
+}

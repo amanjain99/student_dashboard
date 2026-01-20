@@ -1,0 +1,2 @@
+export { NewDropsTeaser } from './NewDropsTeaser';
+
