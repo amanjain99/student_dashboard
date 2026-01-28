@@ -1,22 +1,13 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import styles from './SummaryLayout2.module.css';
-import { AccuracyGraph } from '../../components/AccuracyGraph';
+import styles from './SummaryLayout3.module.css';
 
 // Import assets
 import qbitAvatar from '../../../assets/sigma-boi.png';
-import recentPurchase from '../../../assets/bat-catgirl.png';
 
 // Import banner image
 import strangerBanner from '../../../assets/strangerthings.png';
-
-// Mock data for accuracy over attempts
-const ACCURACY_ATTEMPTS = [
-  { label: 'Attempt\n#1', accuracy: 50, isCurrent: false, isFuture: false },
-  { label: 'This\nattempt', accuracy: 100, isCurrent: true, isFuture: false },
-  { label: 'Next\nattempt', accuracy: 100, isCurrent: false, isFuture: true },
-];
 
 // Mock data
 const GAME_DATA = {
@@ -133,10 +124,9 @@ const REACTIONS = [
   { id: 'loser', emoji: '😭' },
 ];
 
-export function SummaryLayout2() {
+export function SummaryLayout3() {
   const navigate = useNavigate();
   const [announcements, setAnnouncements] = useState(GAME_DATA.announcements);
-  const [carouselSlide, setCarouselSlide] = useState(0);
 
   const dismissAnnouncement = (id: number) => {
     setAnnouncements(announcements.filter(ann => ann.id !== id));
@@ -186,9 +176,8 @@ export function SummaryLayout2() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <div className={styles.summaryStats}>
-                    <div className={styles.congratsMessage}>
-                      <span className={styles.congratsEmoji}>🎉</span>
-                      <span className={styles.congratsTitle}>Amazing work, {GAME_DATA.studentName}!</span>
+                    <div className={styles.summaryHeader}>
+                      <span className={styles.summaryLabel}>GAME SUMMARY</span>
                     </div>
                     <div className={styles.bigStats}>
                       <div className={styles.bigStat}>
@@ -240,12 +229,6 @@ export function SummaryLayout2() {
                   </div>
                 </motion.div>
 
-                {/* Accuracy Graph - Shows accuracy over multiple attempts */}
-                <AccuracyGraph 
-                  attempts={ACCURACY_ATTEMPTS}
-                  improvementMessage="Your accuracy was improved by 50% with Reattempt quiz."
-                />
-
                 {/* Questions with Performance Stats */}
                 <div className={styles.questionsColumn}>
                   {/* Unified Header Zone */}
@@ -256,40 +239,37 @@ export function SummaryLayout2() {
                     transition={{ delay: 0.15 }}
                   >
                     <div className={styles.headerRow}>
-                      <div className={styles.headerLeft}>
-                        <span className={styles.questionsTitle}>Review Questions</span>
-                        <span className={styles.questionsCount}>{GAME_DATA.questions.length} questions</span>
-                      </div>
-                      <button className={styles.flashcardBtn}>
-                        Study Flashcards
-                      </button>
+                      <span className={styles.questionsTitle}>Review Questions</span>
+                      <span className={styles.questionsCount}>{GAME_DATA.questions.length} questions</span>
                     </div>
                     
                     {/* Inline Stats Row */}
                     <div className={styles.statsRow}>
-                      <span className={`${styles.statItem} ${styles.correct}`}>
-                        ✓ {GAME_DATA.stats.correct} correct
-                      </span>
-                      <span className={styles.statPipe}>|</span>
-                      <span className={`${styles.statItem} ${styles.incorrect}`}>
-                        ✗ {GAME_DATA.stats.incorrect} incorrect
-                      </span>
-                      <span className={styles.statPipe}>|</span>
-                      <span className={`${styles.statItem} ${styles.ungraded}`}>
-                        ○ {GAME_DATA.stats.ungraded} ungraded
-                      </span>
-                      <span className={styles.statPipe}>|</span>
-                      <span className={styles.statItem}>
-                        {GAME_DATA.stats.unattempted} skipped
-                      </span>
-                      <span className={styles.statPipe}>|</span>
-                      <span className={styles.statItem}>
-                        ⏱ {GAME_DATA.stats.avgTime}
-                      </span>
-                      <span className={styles.statPipe}>|</span>
-                      <span className={styles.statItem}>
-                        🔥 {GAME_DATA.stats.streak}
-                      </span>
+                      <div className={`${styles.statChip} ${styles.correct}`}>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.correct}</span>
+                        <span className={styles.chipLabel}>correct</span>
+                      </div>
+                      <div className={`${styles.statChip} ${styles.incorrect}`}>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.incorrect}</span>
+                        <span className={styles.chipLabel}>incorrect</span>
+                      </div>
+                      <div className={`${styles.statChip} ${styles.ungraded}`}>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.ungraded}</span>
+                        <span className={styles.chipLabel}>ungraded</span>
+                      </div>
+                      <div className={styles.statsDivider} />
+                      <div className={`${styles.statChip} ${styles.neutral}`}>
+                        <span className={styles.chipIcon}>⏱</span>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.avgTime}</span>
+                      </div>
+                      <div className={`${styles.statChip} ${styles.neutral}`}>
+                        <span className={styles.chipIcon}>🔥</span>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.streak}</span>
+                      </div>
+                      <div className={`${styles.statChip} ${styles.neutral}`}>
+                        <span className={styles.chipValue}>{GAME_DATA.stats.unattempted}</span>
+                        <span className={styles.chipLabel}>skipped</span>
+                      </div>
                     </div>
                   </motion.div>
                   <div className={styles.questionsList}>
@@ -331,89 +311,40 @@ export function SummaryLayout2() {
 
               {/* Right Column: Banner + Sidebar */}
               <div className={styles.rightColumn}>
-                {/* Drop Announcement Carousel */}
+                {/* Drop Announcement */}
                 <motion.div
                   className={styles.dropAnnouncement}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <div 
-                    className={styles.dropCarouselTrack}
-                    style={{ transform: `translateX(-${carouselSlide * 100}%)` }}
-                  >
-                    {/* Slide 1: Limited Edition */}
-                    <div className={styles.dropSlide}>
-                      <Link to="/drops" className={styles.dropLink}>
-                        <img src={strangerBanner} alt="Stranger Qbits" className={styles.dropBannerImage} />
-                        <div className={styles.dropOverlay}>
-                          <div className={styles.dropContent}>
-                            <span className={styles.dropSubtitle}>Limited Edition Collection</span>
-                            <span className={styles.dropCta}>Shop Now →</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-
-                    {/* Slide 2: Recent Purchase */}
-                    <div className={styles.dropSlide}>
-                      <div className={styles.recentPurchaseSlide}>
-                        <img src={recentPurchase} alt="Recent Purchase" className={styles.recentPurchaseImg} />
-                        <div className={styles.recentPurchaseOverlay}>
-                          <span className={styles.recentPurchaseLabel}>Recently Purchased</span>
-                          <span className={styles.recentPurchaseName}>Bat Catgirl</span>
-                          <motion.button 
-                            className={styles.applyBtn}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            ✨ Apply Now
-                          </motion.button>
-                        </div>
+                  <Link to="/drops" className={styles.dropLink}>
+                    <img src={strangerBanner} alt="Stranger Qbits" className={styles.dropBannerImage} />
+                    <div className={styles.dropOverlay}>
+                      <div className={styles.dropContent}>
+                        <span className={styles.dropSubtitle}>Limited Edition Collection</span>
+                        <span className={styles.dropCta}>Shop Now →</span>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Carousel Navigation */}
-                  <button 
-                    className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
-                    onClick={() => setCarouselSlide(carouselSlide === 0 ? 1 : 0)}
-                  >
-                    ‹
-                  </button>
-                  <button 
-                    className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
-                    onClick={() => setCarouselSlide(carouselSlide === 1 ? 0 : 1)}
-                  >
-                    ›
-                  </button>
-
-                  {/* Carousel Dots */}
-                  <div className={styles.dropCarouselDots}>
-                    <button 
-                      className={`${styles.dropDot} ${carouselSlide === 0 ? styles.dropDotActive : ''}`}
-                      onClick={() => setCarouselSlide(0)}
-                    />
-                    <button 
-                      className={`${styles.dropDot} ${carouselSlide === 1 ? styles.dropDotActive : ''}`}
-                      onClick={() => setCarouselSlide(1)}
-                    />
-                  </div>
+                  </Link>
                 </motion.div>
 
-                {/* Announcement Items */}
-                {announcements.map((ann) => (
-                  <div key={ann.id} className={styles.announcementItem}>
-                    <span className={styles.annIcon}>{ann.icon}</span>
-                    <span className={styles.annText}>{ann.text}</span>
-                    <button 
-                      className={styles.annAction}
-                      onClick={() => dismissAnnouncement(ann.id)}
-                    >
-                      {ann.action}
-                    </button>
-                  </div>
-                ))}
+                {/* What's New */}
+                <div className={styles.announcementsCard}>
+                  <span className={styles.promoTitle}>What's New</span>
+                  {announcements.map((ann) => (
+                    <div key={ann.id} className={styles.announcementItem}>
+                      <span className={styles.annIcon}>{ann.icon}</span>
+                      <span className={styles.annText}>{ann.text}</span>
+                      <button 
+                        className={styles.annAction}
+                        onClick={() => dismissAnnouncement(ann.id)}
+                      >
+                        {ann.action}
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -423,3 +354,4 @@ export function SummaryLayout2() {
     </div>
   );
 }
+

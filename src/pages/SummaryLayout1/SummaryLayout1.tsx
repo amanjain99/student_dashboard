@@ -254,63 +254,56 @@ export function SummaryLayout1() {
                 </div>
               </motion.div>
 
-              {/* Performance Stats */}
-              <motion.div 
-                className={styles.performanceSection}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-              >
-                <h3 className={styles.sectionTitle}>Performance Stats</h3>
-                <div className={styles.performanceGrid}>
-                  <div className={styles.performanceRow}>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.correct}</span>
-                      <span className={styles.performanceLabel}>Correct</span>
-                      <span className={`${styles.decorIcon} ${styles.correct}`}>✓</span>
-                    </motion.div>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.incorrect}</span>
-                      <span className={styles.performanceLabel}>Incorrect</span>
-                      <span className={`${styles.decorIcon} ${styles.incorrect}`}>✗</span>
-                    </motion.div>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.ungraded}</span>
-                      <span className={styles.performanceLabel}>Ungraded</span>
-                      <span className={`${styles.decorIcon} ${styles.ungraded}`}>◐</span>
-                    </motion.div>
-                  </div>
-                  <div className={styles.performanceRow}>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.timePerQuestion}</span>
-                      <span className={styles.performanceLabel}>Time/ques</span>
-                      <span className={`${styles.decorIcon} ${styles.time}`}>⏱</span>
-                    </motion.div>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.streak}</span>
-                      <span className={styles.performanceLabel}>Streak</span>
-                      <span className={`${styles.decorIcon} ${styles.streak}`}>🔥</span>
-                    </motion.div>
-                    <motion.div className={styles.performanceCard} whileHover={{ y: -2 }}>
-                      <span className={styles.performanceNumber}>{GAME_DATA.stats.unattempted}</span>
-                      <span className={styles.performanceLabel}>Unattempted</span>
-                      <span className={`${styles.decorIcon} ${styles.unattempted}`}>⊖</span>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Review Questions */}
+              {/* Review Questions with Performance Stats */}
               <motion.div 
                 className={styles.reviewSection}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.25 }}
               >
                 <div className={styles.reviewHeader}>
                   <h3 className={styles.reviewTitle}>Review Questions</h3>
                   <p className={styles.reviewSubtitle}>Click on the questions to see answers</p>
                 </div>
+
+                {/* Performance Stats Bar - Inline with questions */}
+                <motion.div 
+                  className={styles.performanceStatsBar}
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className={`${styles.statPill} ${styles.correct}`}>
+                    <span className={styles.statPillIcon}>✓</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.correct}</span>
+                    <span className={styles.statPillLabel}>Correct</span>
+                  </div>
+                  <div className={`${styles.statPill} ${styles.incorrect}`}>
+                    <span className={styles.statPillIcon}>✗</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.incorrect}</span>
+                    <span className={styles.statPillLabel}>Incorrect</span>
+                  </div>
+                  <div className={`${styles.statPill} ${styles.ungraded}`}>
+                    <span className={styles.statPillIcon}>◐</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.ungraded}</span>
+                    <span className={styles.statPillLabel}>Ungraded</span>
+                  </div>
+                  <div className={`${styles.statPill} ${styles.time}`}>
+                    <span className={styles.statPillIcon}>⏱</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.timePerQuestion}</span>
+                    <span className={styles.statPillLabel}>Avg</span>
+                  </div>
+                  <div className={`${styles.statPill} ${styles.streak}`}>
+                    <span className={styles.statPillIcon}>🔥</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.streak}</span>
+                    <span className={styles.statPillLabel}>Streak</span>
+                  </div>
+                  <div className={`${styles.statPill} ${styles.skipped}`}>
+                    <span className={styles.statPillIcon}>○</span>
+                    <span className={styles.statPillValue}>{GAME_DATA.stats.unattempted}</span>
+                    <span className={styles.statPillLabel}>Skipped</span>
+                  </div>
+                </motion.div>
                 <div className={styles.questionsList}>
                   {GAME_DATA.questions.map((question, index) => (
                     <motion.div 

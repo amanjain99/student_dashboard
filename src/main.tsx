@@ -13,6 +13,7 @@ import { Layout5 } from './pages/Layout5'
 import { Layout6 } from './pages/Layout6'
 import { SummaryLayout1 } from './pages/SummaryLayout1'
 import { SummaryLayout2 } from './pages/SummaryLayout2'
+import { SummaryLayout3 } from './pages/SummaryLayout3'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -29,6 +30,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/layout-6" element={<Layout6 />} />
         <Route path="/summary-layout-1" element={<SummaryLayout1 />} />
         <Route path="/summary-layout-2" element={<SummaryLayout2 />} />
+        <Route path="/summary-layout-3" element={<SummaryLayout3 />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

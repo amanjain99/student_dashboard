@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Accuracy Graph Component - Line chart showing accuracy over attempts
+   ========================================================================== */
+
+.accuracyGraphContainer {
+  background: rgba(9, 9, 9, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.graphHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.graphLabel {
+  font-family: var(--font-family-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.infoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.infoButton:hover {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.graphWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 170px;
+  overflow: visible;
+}
+
+.graph {
+  width: 100%;
+  height: 100%;
+}
+
+/* Y-axis labels */
+.yLabel {
+  font-family: var(--font-family-display);
+  font-size: 9px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.35);
+}
+
+/* X-axis labels */
+.xLabel {
+  font-family: var(--font-family-display);
+  font-size: 9px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.xLabel.currentLabel {
+  fill: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+/* Value labels on data points */
+.valueLabel {
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: 700;
+  fill: #00c985;
+}
+
+/* Improvement message */
+.improvementMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  margin-top: 8px;
+  background: rgba(0, 201, 133, 0.08);
+  border: 1px solid rgba(0, 201, 133, 0.15);
+  border-radius: 8px;
+}
+
+.celebrationIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.messageText {
+  font-family: var(--font-family-display);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .accuracyGraphContainer {
+    padding: 12px;
+  }
+  
+  .graph {
+    min-height: 110px;
+    max-height: 130px;
+  }
+  
+  .improvementMessage {
+    padding: 6px 10px;
+  }
+  
+  .messageText {
+    font-size: 11px;
+  }
+}
+

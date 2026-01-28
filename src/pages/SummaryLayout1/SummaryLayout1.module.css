@@ -544,9 +544,86 @@
 }
 
 .reviewHeader {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-align: center;
 }
+
+/* Performance Stats Bar - Compact row inside review section */
+.performanceStatsBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.statPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.15s ease;
+}
+
+.statPill:hover {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.statPillIcon {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.statPillValue {
+  font-family: var(--font-family-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+.statPillLabel {
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Stat pill color variations */
+.statPill.correct .statPillIcon { color: #00c985; }
+.statPill.correct .statPillValue { color: #00c985; }
+.statPill.correct { border-color: rgba(0, 201, 133, 0.2); }
+
+.statPill.incorrect .statPillIcon { color: #ef3c69; }
+.statPill.incorrect .statPillValue { color: #ef3c69; }
+.statPill.incorrect { border-color: rgba(239, 60, 105, 0.2); }
+
+.statPill.ungraded .statPillIcon { color: #5c8fd6; }
+.statPill.ungraded .statPillValue { color: #5c8fd6; }
+.statPill.ungraded { border-color: rgba(92, 143, 214, 0.2); }
+
+.statPill.time .statPillIcon { color: #2d9da6; }
+.statPill.time .statPillValue { color: #2d9da6; }
+.statPill.time { border-color: rgba(45, 157, 166, 0.2); }
+
+.statPill.streak .statPillIcon { color: #ff6819; }
+.statPill.streak .statPillValue { color: #ff6819; }
+.statPill.streak { border-color: rgba(255, 104, 25, 0.2); }
+
+.statPill.skipped .statPillIcon { color: #8a8a8a; }
+.statPill.skipped .statPillValue { color: #8a8a8a; }
+.statPill.skipped { border-color: rgba(138, 138, 138, 0.2); }
 
 .reviewTitle {
   font-family: var(--font-family-display);
@@ -1152,6 +1229,29 @@
   
   .performanceLabel {
     font-size: 10px;
+  }
+  
+  /* Performance Stats Bar responsive */
+  .performanceStatsBar {
+    gap: 6px;
+    padding: 10px 12px;
+  }
+  
+  .statPill {
+    padding: 5px 8px;
+    gap: 4px;
+  }
+  
+  .statPillIcon {
+    font-size: 11px;
+  }
+  
+  .statPillValue {
+    font-size: 12px;
+  }
+  
+  .statPillLabel {
+    font-size: 9px;
   }
   
   .optionsList {

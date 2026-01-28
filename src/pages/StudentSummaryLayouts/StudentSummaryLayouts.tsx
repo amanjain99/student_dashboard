@@ -179,6 +179,66 @@ export function StudentSummaryLayouts() {
             </div>
             <div className={styles.cardArrow}>→</div>
           </motion.button>
+
+          {/* Layout 3 Card */}
+          <motion.button
+            className={styles.layoutCard}
+            onClick={() => navigate('/summary-layout-3')}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className={styles.cardPreview}>
+              <div className={styles.previewLayout2}>
+                {/* Hero Row */}
+                <div className={styles.previewHeroRow}>
+                  {/* Summary Stats */}
+                  <div className={styles.previewSummaryCard}>
+                    <div className={styles.previewSummaryHeader} />
+                    <div className={styles.previewBigStats}>
+                      <div className={styles.previewBigStat} />
+                      <div className={styles.previewBigStat} />
+                      <div className={styles.previewBigStat} />
+                    </div>
+                    <div className={styles.previewCtaButtons}>
+                      <div className={styles.previewCtaBtn} />
+                      <div className={styles.previewCtaBtn} />
+                    </div>
+                  </div>
+                  {/* Qbit Showcase */}
+                  <div className={styles.previewQbitShowcase}>
+                    <div className={styles.previewQbitAvatar} />
+                    <div className={styles.previewQbitCoins} />
+                  </div>
+                  {/* Drop Banner */}
+                  <div className={styles.previewDropBanner}>
+                    <div className={styles.previewDropBadge} />
+                    <div className={styles.previewDropTitle} />
+                  </div>
+                </div>
+                {/* Split Section */}
+                <div className={styles.previewSplitSection}>
+                  <div className={styles.previewQuestionsCol}>
+                    <div className={styles.previewQCard} />
+                    <div className={styles.previewQCard} />
+                    <div className={styles.previewQCard} />
+                  </div>
+                  <div className={styles.previewSidebarCol}>
+                    <div className={styles.previewAnnouncement} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>Layout 3</h3>
+              <p className={styles.cardDescription}>
+                Variation of Layout 2 for experimentation and customization
+              </p>
+            </div>
+            <div className={styles.cardArrow}>→</div>
+          </motion.button>
         </div>
       </motion.div>
     </div>
